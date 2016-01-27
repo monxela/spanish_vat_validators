@@ -32,6 +32,7 @@ module ActiveModel::Validations
       if regular.match(value).blank?
         false
       else
+      	primera = texto[0,1]
         ultima = texto[8,1]
 
         [1,3,5].collect do |cont|
@@ -47,8 +48,15 @@ module ActiveModel::Validations
         unumero = suma.last.to_i
         unumero = (10 - unumero).to_s
         unumero = 0 if(unumero.to_i == 10)
-
-        ((ultima == unumero) || (ultima == uletra[unumero.to_i]))
+	
+	case primera
+	when "K", "P", "Q", "S", "W"
+	  (ultima == uletra[unumero.to_i])
+	when "A", "B", "E", "H"
+	  (ultima == unumero)
+	else
+	  ((ultima == unumero) || (ultima == uletra[unumero.to_i]))
+	end
       end
     end
 
