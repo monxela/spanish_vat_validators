@@ -28,7 +28,7 @@ module ActiveModel::Validations
       impares = 0
       uletra = ["J", "A", "B", "C", "D", "E", "F", "G", "H", "I"]
       texto = value.upcase
-      regular = /^[ABCDEFGHKLMNPQRS]\d{7}[0-9,A-J]$/#g);
+      regular = /^[ABCDEFGHJKLMNPQRSUVW]\d{7}[0-9,A-J]$/#g);
       if regular.match(value).blank?
         false
       else
